@@ -5,33 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <title>Petfax</title>
 </head>
 
 <body>
-    <h1>Welcome to PetFax</h1>
-
-    <!-- Tagline -->
-    <div>
-        Welcome to PetFax! We are a no-kill shelter dedicated to finding our pets loving homes and educating the public
-        with fun facts.
-    </div>
-
-    <!-- Pets Container -->
-    <div>
-        {% for pet in pets %}
-        <!-- Pet -->
-        <div>
-            <h2>{{ pet.pet_name }}</h2>
-            <img src="{{ pet.pet_photo }}" alt="Photo of pet" />
-            <a href="/pets/{{ pet.pet_id }}">Learn more</a>
+    <div class="container">
+        <h1>Welcome to PetFax</h1>
+        <!-- Tagline -->
+        <div class="blurb-container">
+            Welcome to PetFax! We are a no-kill shelter dedicated to finding our pets loving homes and educating the public
+            with fun facts.
         </div>
-        {% endfor %}
-    </div>
-
-    <!-- Facts Footer -->
-    <div>
-        We'd love to learn more fun facts! <a href="/facts/new">Submit some here.</a>
+        <!-- Pets Container -->
+        <div class="pet-container">
+            {% for pet in pets %}
+            <!-- Pet -->
+            <div class="pet-card">
+                <h2>{{ pet.pet_name }}</h2>
+                <img src="{{ pet.pet_photo }}" alt="Photo of pet" />
+                <br/>
+                <a href="/pets/{{ pet.pet_id }}">Learn more &rarr;</a>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- Facts Footer -->
+        <div class="blurb-container footer">
+            We'd love to learn more fun facts! <a href="/facts/new">Submit some here.</a>
+        </div>
     </div>
 </body>
 
